@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+<form-beans>
+
+<form-bean name="enqIdForm" type="com.jlcindia.struts1.EnquireIdForm"/>
+<form-bean name="enqTimingForm" type="com.jlcindia.struts1.EnqiureTimingForm"/>
+</form-beans>
+
+<global-forwords>
+<forword name="SearchByEid" path="/searchbyeid.jsp"/>
+<forword name="SearchByTimingsForm" path="searchbytimings.jsp"/>
+</global-forwords>
+
+<action-mappings>
+<action path="/EnqIdSubmit" 
+		name="enqIdForm"
+		type="com.jlcindia.struts1.EnquireIdAction"
+		scope="request"
+		validate="true"
+		input="/searchbyid.jsp"
+		
+		<forword name="success" path="/resultsbyeid.jsp"/>
+		<forword name="success" path="/searchbyeid.jsp"/>
+
+</action>
+	</action-mappings>
+
+<message-resources parameter="com.jlcindia.struts1.messages"/>
+  
+</struts-config>
+
